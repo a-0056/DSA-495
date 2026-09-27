@@ -147,8 +147,8 @@ Complete the development-set comparison.
 
 | Candidate-label formulation | Accuracy | Macro-F1 |
 |---|---:|---:|
-| A: emotion names | | |
-| B: expanded descriptions | | |
+| A: emotion names | 0.500000 | 0.464388 |
+| B: expanded descriptions | 0.566667 | 0.552279 |
 
 Which formulation did the prespecified macro-F1 rule select? Give one example
 whose prediction changed when the wording changed. Why is a conclusion based on
@@ -156,7 +156,7 @@ only five development messages per class uncertain?
 
 **Response:**
 
-[Write 3–4 sentences.]
+The prespecified macro-F1 rule selected the expanded descriptions formulation. 
 
 ### Q7. Final model comparison
 

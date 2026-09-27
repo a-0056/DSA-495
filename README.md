@@ -55,7 +55,12 @@ class is least common, and why does that make accuracy alone insufficient?
 
 **Response:**
 
-[Write 2–3 sentences.]
+There are 30 development messages in total taken as a sample, with 5 for each emotion.
+The rest of the data points are evaluated as shown in the evaluation column. The total number
+of these evaluation data points is 1970. The least common evaluation class is surprise,
+and this makes accuracy alone insufficient because surprise only makes up a small percentage
+of all the data points, while other emotions such as joy and sadness have a significantly
+larger number of data points for that emotion. This may suggest bias in the model.
 
 ### Q2. What do the tokenizers receive?
 

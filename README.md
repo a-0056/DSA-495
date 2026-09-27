@@ -70,7 +70,14 @@ to one of your two student-written examples.
 
 **Response:**
 
-[Write 3–5 sentences.]
+The BART tokenizer starts some of the tokens with a capital "Ĝ" while the DistilBERT
+tokenizer does not add any values to the beginning of each token. This can be seen with
+the example "I1", where many of the tokens displayed in token_strings for the BART tokenizer 
+start with a capital "Ĝ" and the DistilBERT tokenizer's tokens do not start with any letter
+or number. The BART tokenizer also maintains tokens starting with a capitalized letter, while 
+the DistilBERT tokenizer converts all capitalized tokens into lowercase tokens. This can be seen 
+in the example "S1", where the word "Dolphin" is converted to a lowercase token by the DistilBERT 
+tokenizer. Meanwhile, the BART tokenizer keeps the token capitalized.
 
 ### Q3. Truncation
 
@@ -81,7 +88,14 @@ unless you test that claim.
 
 **Response:**
 
-[Write 2–3 sentences.]
+All content after approximately the second sentence was removed from the long
+diagnostic message at the artificial 32-token limit. This includes the last sentence,
+which changes the emotion of the sentence to fear instead because it contains the
+phrase "I am terrified about what happens tomorrow." which is essential for identifying
+the emotion of fear. Losing this content will affect the classification because the model
+is only analyzing the part where the sentence says "I described the train ride, the weather, 
+and every stop along the way.", which does not convey the entire message of emotion of
+fear as expressed in the last sentence.
 
 ## 2. Specialized encoder classification
 
@@ -91,14 +105,15 @@ Complete the table using the 1,970-message evaluation set.
 
 | Method | Accuracy | Macro-F1 | Inference seconds |
 |---|---:|---:|---:|
-| Always predict joy | | | N/A |
-| DistilBERT emotion classifier | | | |
+| Always predict joy | 0.350254 | 0.86466 | N/A |
+| DistilBERT emotion classifier | 0.924365 | 0.880256 | 4.478255 |
 
 Which emotion has the lowest DistilBERT recall? Include its recall and support.
 
 **Response:**
 
-[Write 2–3 sentences.]
+The emotion that has the lowest DistilBERT recall is surprise, with the recall
+value being 0.754098 and the support being 61.0.
 
 ### Q5. Three encoder errors
 
@@ -107,9 +122,9 @@ error if the notebook produces one.
 
 | Example ID | Reference label | Prediction | Model score | Brief observation |
 |---|---|---|---:|---|
-| | | | | |
-| | | | | |
-| | | | | |
+| emotion_test01314 | ive blogged and i feel strange about it | surprise | fear | 0.998749852180481 |
+| emotion_test_01377 | i walked to school he felt the bounce in his step the overjoyed feelings of youth and the thrill of excitement of coming to school and meeting his beloved friends | love | joy | 0.9985522627830505 |
+| emotion_test00816 | whenever i put myself in other shoes and try to make the person happy | anger | joy | 0.9984239339828491 |
 
 What pattern, ambiguity, or missing context do you observe? Cite language from
 the messages. Remember that a high model score is not proof that the prediction
@@ -117,7 +132,12 @@ is correct or that the score is calibrated.
 
 **Response:**
 
-[Write 3–5 sentences.]
+I noticed that the emotions of joy and love are hard to distinguish clearly by the model
+because in emotion_test_01377, the model predicted that the emotion was joy when it was love, based
+on words like "overjoyed" and phrases like "the thrill of excitement". This in turn led to the model
+having a high encoder_score (certainty). I also saw that the pattern of the model over-relied on
+certain words to make its prediction. For example, in emotion_test_00816, the word "happy" is present
+in the text, and the model predicted that the text was expressing joy mainly because of this word.
 
 ## 3. Zero-shot classification
 

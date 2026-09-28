@@ -171,8 +171,8 @@ Complete the table using the same 1,970 evaluation messages for both models.
 | Method | Accuracy | Macro-F1 | Inference seconds |
 |---|---:|---:|---:|
 | Always predict joy | 0.350254 | 0.086466 | N/A |
-| DistilBERT emotion classifier | 0.924365 | 0.880256 | 171.198248 |
-| BART zero-shot classifier | 0.536548 | 0.479474 | 7289.840730 |
+| DistilBERT emotion classifier | 0.924365 | 0.880256 | 111.820617 |
+| BART zero-shot classifier | 0.536548 | 0.479474 | 4124.239557 |
 
 Describe the main performance difference without claiming that this is a
 controlled comparison of model architectures.
@@ -183,8 +183,8 @@ The main performance difference between the DistilBERT and BART zero-shot models
 is that DistilBERT performed better and was more accurate when identifying
 what emotions are being expressed, with an accuracy rate of 0.924365 compared to the
 BART zero-shot's accuracy rate of 0.536548. The time used to run the model 
-171.198248 seconds, was significantly less than the BART zero-shot model, which 
-took 7289.840730 seconds to run.
+111.820617 seconds, was significantly less than the BART zero-shot model, which 
+took 4124.239557 seconds to run.
 
 ### Q8. Four model disagreements
 

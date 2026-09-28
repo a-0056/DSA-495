@@ -156,7 +156,14 @@ only five development messages per class uncertain?
 
 **Response:**
 
-The prespecified macro-F1 rule selected the expanded descriptions formulation. 
+The prespecified macro-F1 rule selected the expanded descriptions formulation.
+An example whose prediction changed when the wording changed is emotion_test_00332,
+where the label is sadness, but the model's initial prediction was surprise. After
+using the expanded descriptions formulation, however, the model predicted that the
+emotion being expressed was sadness instead, which matches the correct label. A
+conclusion based on only five development messages per class is uncertain because
+five development messages are not enough for the model to analyze the full spectrum of
+expressions for one emotion.
 
 ### Q7. Final model comparison
 
@@ -164,16 +171,21 @@ Complete the table using the same 1,970 evaluation messages for both models.
 
 | Method | Accuracy | Macro-F1 | Inference seconds |
 |---|---:|---:|---:|
-| Always predict joy | | | N/A |
-| DistilBERT emotion classifier | | | |
-| BART zero-shot classifier | | | |
+| Always predict joy | 0.350254 | 0.086466 | N/A |
+| DistilBERT emotion classifier | 0.924365 | 0.880256 | 171.198248 |
+| BART zero-shot classifier | 0.536548 | 0.479474 | 7289.840730 |
 
 Describe the main performance difference without claiming that this is a
 controlled comparison of model architectures.
 
 **Response:**
 
-[Write 2–3 sentences.]
+The main performance difference between the DistilBERT and BART zero-shot models
+is that DistilBERT performed better and was more accurate when identifying
+what emotions are being expressed, with an accuracy rate of 0.924365 compared to the
+BART zero-shot's accuracy rate of 0.536548. The time used to run the model 
+171.198248 seconds, was significantly less than the BART zero-shot model, which 
+took 7289.840730 seconds to run.
 
 ### Q8. Four model disagreements
 
@@ -182,17 +194,29 @@ correctness patterns when the notebook makes them available.
 
 | Example ID | Reference | DistilBERT | BART | Who is correct? |
 |---|---|---|---|---|
-| | | | | |
-| | | | | |
-| | | | | |
-| | | | | |
+emotion_test_00002 | i never make her separate from me because i don t ever want her 
+to feel like i m ashamed with her| sadness | sadness | love | encoder only correct |
+emotion_test_00072 | i am right handed however i play billiards left handed naturally 
+so me trying to play right handed feels weird | surprise | fear | surprise | zero-shot only correct |
+emotion_test_00098 | i feel my heart is tortured by what i have done | anger | fear | sadness | both incorrect |
+emotion_test_00004 | i was feeling a little vain when i did this one | sadness | sadness | surprise | encoder only correct |
 
 Choose two of these messages and explain what textual evidence supports each
 model’s prediction. If the reference label is debatable, explain why.
 
 **Response:**
 
-[Write 3–5 sentences.]
+For emotion_test_0002, the DistilBERT model determined that the emotion being expressed
+was sadness, while the BART zero-shot model identified the emotion as love. The DistilBERT
+model likely relied on the word "ashamed" to identify the emotion of sadness, while the
+BART zero-shot model focused on the phrase "i never make her separate from me" to identify
+love.
+
+For emotion_test_00072, the DistilBERT model determined that the text was expressing fear
+while the BART zero-shot model found that the emotion in the text is surprise. The DistilBERT
+identified fear in the text through the words "however" and "weird" since these words suggested
+fear, while the BART zero-shot model identified surprise through the phrase "right handed
+however i play billiards left handed naturally" which infers the emotion of surprise.
 
 ### Q9. Recommendation and limitations
 
@@ -203,23 +227,17 @@ establish.
 
 **Response:**
 
-[Write 4–6 sentences.]
+I would use the DistilBERT model because it demonstrates a higher overall accuracy rate than
+the BART zero-shot model, and the DistilBERT model had a higher macro-F1 score compared to the
+BART zero-shot model's macro-F1 score, which means that the DistilBERT model predicted better
+across all categories of emotion. To start, the DistilBERT model had an overall accuracy 
+rate of 0.924365, while the BART zero-shot model had an overall accuracy rate of 0.536548. The
+DistilBERT model also had a macro-F1 score of 0.880256, and the BART zero-shot model had a 
+macro-F1 score of 0.552279. One of the limitations that are present, however, is that the DistilBERT
+model had prior training using content from the dataset, while BART did not have any training from
+the dataset at all. Additionally, the scores for DistilBERT and BART are not comparable because
+they went through different classification procedures, so their scores are not directly comparable.
 
 ## AI-use statement
 
-State whether you used a generative or agentic AI tool for this assignment.
-
-If you used one, briefly identify the tool and explain its role in your work.
-Describe what you completed independently, what assistance you incorporated,
-and how you reviewed or verified the final result. A concise paragraph is
-sufficient; you do not need to include a transcript of your prompts. For
-example, you might write:
-
-> I used [tool] to help with [purpose]. I used its suggestions or output for
-> [part of the assignment] and reviewed or verified that work by [method].
-
-This example is a guide, not a required format; include the details that best
-describe how you used and checked the tool.
-
-If you did not use one, write: “I did not use a generative or agentic AI tool
-for this assignment.”
+I did not use a generative or agentic AI tool for this assignment.

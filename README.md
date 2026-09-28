@@ -28,10 +28,10 @@ the data points not taken as a sample.
 
 List every file included in your submission and briefly describe it.
 
-- `Lab1.ipynb` (or .py): This lab contains the code that I analyzed to answer the questions
-      in the "README.md" document.
+- `Lab1.ipynb` (or .py): This lab contains the template code of Lab1.
+- `MaLab1.ipynb1: This lab file contains all the data that I completed
+        and analyzed to answer the questions in the "README.md" document.
 - `README.md`: This contains all responses and is the reproducibility document.
-- [Add any other submitted files if any, or write “No additional files.”]
 
 To run the analysis:
 
@@ -40,7 +40,6 @@ To run the analysis:
 3. Confirm that the course data are available in Google Drive at
    `DSA495-2026/Labs/Lab 1`.
 4. Run all notebook cells from top to bottom.
-5. [Add any additional instruction needed to reproduce your submission.]
 
 The notebook contains two designated student code blocks and one model-selection
 line. Complete those sections yourself; the surrounding setup and model-inference

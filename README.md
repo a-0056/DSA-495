@@ -74,7 +74,7 @@ Report the number and percentage of documents assigned to topic `-1`. Examine on
 
 **Response:**
 
-\[There were 10 documents assigned to topic \-1, which is 3.3% of the total number of documents. Observing the document D1861, the document might remain unassigned because the document frequently uses keywords that are consistent among several of the identified topics. In this source, the text used the words “credit card” and “loan”, which are keywords in both topics in index 0 and 2\. One limitation of interpreting distances in the two-dimensional document map is interpreting global distances, because measuring the relationship of words across the entire map can easily lead to distortions in distances compared to measuring local distances.\]
+\[There were 10 documents assigned to topic \-1, which is 3.3% of the total number of documents. Observing the document D1861, the document might remain unassigned because the document frequently uses keywords that are consistent among several of the identified topics. In this source, the text used the words “credit card” and “loan”, which are keywords in both topics in index 0 and 2\. One limitation of interpreting distances in the two-dimensional document map is interpreting global distances, because measuring the relationship of words across the entire map can lead to distortions in distances compared to measuring local distances.\]
 
 ## 2\. Retrieval and grounded generation
 
